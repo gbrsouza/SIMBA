@@ -1,0 +1,21 @@
+server:
+  port: 5557
+
+spring:
+  application:
+    name: highlighter
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=BD_NLP_API
+    username: sa
+    password: yourStrong(!)Password
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+
