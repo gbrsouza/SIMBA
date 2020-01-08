@@ -41,6 +41,10 @@ public class Project implements AbstractEntity {
     @OneToMany(mappedBy = "project")
     private List<Tag> tags;
 
+    @ManyToOne
+    @JoinColumn(name = "idOwner")
+    private ApplicationUser owner;
+
     @ManyToMany
     @JoinTable(
             name = "projectUsers",

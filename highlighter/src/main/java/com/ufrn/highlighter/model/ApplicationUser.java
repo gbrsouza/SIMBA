@@ -24,11 +24,11 @@ public class ApplicationUser implements AbstractEntity {
     private Long id;
 
     @NotNull(message = "The field 'email' is mandatory")
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @NotNull(message = "The field 'username' is mandatory")
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String username;
 
     @NotNull(message = "The field 'password' is mandatory")
@@ -42,7 +42,6 @@ public class ApplicationUser implements AbstractEntity {
 
     @ManyToMany(mappedBy = "applicationUsers")
     private Set<Project> projects;
-
 
     public ApplicationUser(@NotNull ApplicationUser applicationUser) {
         this.id = applicationUser.getId();
