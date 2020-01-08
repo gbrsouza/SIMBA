@@ -1,13 +1,10 @@
 package com.ufrn.highlighter.security.config;
 
-import com.ufrn.highlighter.repository.ActiveClientsRepository;
 import com.ufrn.highlighter.security.filter.JwtTokenAuthorizationFilter;
 import com.ufrn.highlighter.security.filter.JwtUsernameAndPasswordAuthenticationFilter;
 import com.ufrn.highlighter.security.token.converter.TokenConverter;
 import com.ufrn.highlighter.security.token.creator.TokenCreator;
-import com.ufrn.highlighter.service.ActiveClientsService;
 import com.ufrn.highlighter.util.JwtConfiguration;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -24,9 +21,6 @@ public class SecurityCredentialsConfig extends SecurityTokenConfig{
     private final TokenCreator tokenCreator;
     private final TokenConverter tokenConverter;
 
-    @Autowired
-    private ActiveClientsService activeClientsService;
-
     public SecurityCredentialsConfig(JwtConfiguration jwtConfiguration,
                                      @Qualifier("userDetailsServiceImpl") UserDetailsService userDetailsService,
                                      TokenCreator tokenCreator, TokenConverter tokenConverter) {
@@ -39,7 +33,7 @@ public class SecurityCredentialsConfig extends SecurityTokenConfig{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfiguration, tokenCreator, activeClientsService ))
+                .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfiguration, tokenCreator ))
                 .addFilterAfter(new JwtTokenAuthorizationFilter(jwtConfiguration, tokenConverter), UsernamePasswordAuthenticationFilter.class);
         super.configure(http);
     }
