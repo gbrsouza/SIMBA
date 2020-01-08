@@ -27,6 +27,7 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/login/**").permitAll()
+                .antMatchers("/register/**").permitAll()
                 .anyRequest().authenticated();
     }
 
