@@ -1,7 +1,7 @@
 package com.ufrn.highlighter.security.filter;
 
 import com.nimbusds.jwt.SignedJWT;
-import com.ufrn.highlighter.security.token.converter.TokenConverter;
+import com.ufrn.highlighter.security.token.TokenConverter;
 import com.ufrn.highlighter.util.JwtConfiguration;
 import com.ufrn.highlighter.util.SecurityContextUtil;
 import lombok.RequiredArgsConstructor;

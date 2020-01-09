@@ -1,4 +1,4 @@
-package com.ufrn.highlighter.security.token.converter;
+package com.ufrn.highlighter.security.token;
 
 import com.nimbusds.jose.JWEObject;
 import com.nimbusds.jose.crypto.DirectDecrypter;

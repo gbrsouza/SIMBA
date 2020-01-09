@@ -2,8 +2,8 @@ package com.ufrn.highlighter.security.config;
 
 import com.ufrn.highlighter.security.filter.JwtTokenAuthorizationFilter;
 import com.ufrn.highlighter.security.filter.JwtUsernameAndPasswordAuthenticationFilter;
-import com.ufrn.highlighter.security.token.converter.TokenConverter;
-import com.ufrn.highlighter.security.token.creator.TokenCreator;
+import com.ufrn.highlighter.security.token.TokenConverter;
+import com.ufrn.highlighter.security.token.TokenCreator;
 import com.ufrn.highlighter.util.JwtConfiguration;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;

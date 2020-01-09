@@ -52,4 +52,6 @@ public class Project implements AbstractEntity {
             inverseJoinColumns = @JoinColumn(name = "idProject")
     )
     private Set<ApplicationUser> applicationUsers;
+
+    public int getNumberOfMessages () {return messages.size(); }
 }

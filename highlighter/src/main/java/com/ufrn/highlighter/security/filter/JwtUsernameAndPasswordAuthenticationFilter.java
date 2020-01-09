@@ -3,7 +3,7 @@ package com.ufrn.highlighter.security.filter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nimbusds.jwt.SignedJWT;
 import com.ufrn.highlighter.model.ApplicationUser;
-import com.ufrn.highlighter.security.token.creator.TokenCreator;
+import com.ufrn.highlighter.security.token.TokenCreator;
 import com.ufrn.highlighter.util.JwtConfiguration;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

@@ -1,4 +1,4 @@
-package com.ufrn.highlighter.security.token.creator;
+package com.ufrn.highlighter.security.token;
 
 import com.nimbusds.jose.*;
 import com.nimbusds.jose.crypto.DirectEncrypter;

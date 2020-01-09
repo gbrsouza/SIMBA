@@ -14,4 +14,5 @@ public class ApplicationUserService {
 
     private final ApplicationUserRepository applicationUserRepository;
     public void registerNewUser (ApplicationUser user) {applicationUserRepository.save(user);}
+    public Long getIdFromUsername (String username) {return applicationUserRepository.findByUsername(username).getId();}
 }
