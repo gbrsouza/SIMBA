@@ -1,102 +1,99 @@
-<html>
+<!DOCTYPE html>
+<html  xmlns:th="http://thymeleaf.org">
 
 <head>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="/css/materialize.min.css">
-  <title>Highlighter</title>
-	
-  <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-  <style>
-    body {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-    }
-
-    main {
-      flex: 1 0 auto;
-    }
-
-    body {
-      background: #fff;
-    }
-
-    .input-field input[type=date]:focus + label,
-    .input-field input[type=text]:focus + label,
-    .input-field input[type=email]:focus + label,
-    .input-field input[type=username]:focus + label,
-    .input-field input[type=password]:focus + label {
-      color: #e91e63;
-    }
-
-    .input-field input[type=date]:focus,
-    .input-field input[type=text]:focus,
-    .input-field input[type=email]:focus,
-    .input-field input[type=username]:focus,
-    .input-field input[type=password]:focus {
-      border-bottom: 2px solid #e91e63;
-      box-shadow: none;
-    }
-  </style>
+    <title>Pixel Pages - Sign in</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start developing with a User Interface Kit with Bootstrap 4">
+    <meta name="author" content="Themesberg">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="120x120" href="./img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#ffffff">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Pixel CSS -->
+    <link type="text/css" href="/css/pixel.css?v=1.0.1" rel="stylesheet">
 </head>
 
 <body>
-
-  <div class="section"></div>
-  <main>
-    <center>
-     
-      <div class="section"></div>
-
-      <h5 class="indigo-text">Please, login into your account</h5>
-      <div class="section"></div>
-
-      <div class="container">
-        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
-
-          <form class="col s12" method="post">
-            <div class='row'>
-              <div class='col s12'>
-              </div>
+    <main>
+        <section class="min-vh-100 d-flex align-items-center">
+            <div class="bg-img-holder section-image top-0 left-0 col-lg-6 col-xl-7 z-10 vh-100 d-none d-lg-block"
+                data-background="/img/pages/blog.jpg">
             </div>
+            <div class="container-fluid py-5">
+                <div class="row align-items-center">
+                    <div class="col-sm-10 col-lg-6 col-xl-5 mx-auto mr-lg-0">
+                        <div class="px-1 px-xl-6">
+                            <div>
+                                <div class="text-left text-sm-center">
+                                    <h1>Login</h1>
+                                    <p class="text-gray mb-0">Faça login para prosseguir.</p>
+                                </div>
 
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="username" type="text" class="validate" name="username">
-              <label class="active" for="username">Enter your username</label>
+                                <span class="clearfix"></span>
+                                <form action="/login" method="post">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="far fa-user"></i></span>
+                                            </div>
+                                            <input type="username" class="form-control" id="input-username" name="username"
+                                                placeholder="Username" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
+                                            </div>
+                                            <input class="form-control" placeholder="Senha" type="password" name="password" required>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="far fa-eye"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4">
+                                        <button type="submit" class="btn btn-block btn-primary">Entrar</button>
+                                    </div>
+
+                                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                                </form>
+                                <div class="d-block d-sm-flex justify-content-between align-items-center mt-4">
+                                    <span>
+                                        <small>Não possui cadastro?</small>
+                                        <a href="/account" class="small font-weight-bold">Criar conta</a>
+                                    </span>
+                                    <div><a href="#!" class="small text-right">Esqueceu a senha?</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+        </section>
+    </main>
 
-            <div class='row'>
-              <div class='input-field col s12'>
-                <input class='validate' type='password' name='password' id='password' />
-                <label for='password'>Enter your password</label>
-              </div>
-              <label style='float: right;'>
-			    	<a class='pink-text' href='#!'><b>Forgot Password?</b></a>
-              </label>
-            </div>
+    <!-- Core -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/popper/popper.min.js"></script>
+    <script src="/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="/vendor/headroom/headroom.min.js"></script>
 
-            <br />
-            <center>
-              <div class='row'>
-                <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
-              </div>
-            </center>
-          </form>
-        </div>
-      </div>
-      <a href="account">Create account</a>
-    </center>
+    <!-- Vendor JS -->
+    <script src="/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+    <script src="/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="/vendor/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
+    <script src="/vendor/prism/prism.js"></script>
+    <!-- pixel JS -->
+    <script src="/js/pixel.js"></script>
 
-    <div class="section"></div>
-    <div class="section"></div>
-  </main>
-
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="/js/materialize.min.js"></script>
 </body>
 
 </html>

@@ -1,54 +1,177 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en">
+
 <head>
-    <title>Highlighter</title>
-
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <!--Import materialize.css-->
-    <link rel="stylesheet" type="text/css" href="/css/materialize.min.css">
-
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start developing with a User Interface Kit with Bootstrap 4">
+    <meta name="author" content="Themesberg">
+    <title>Pixel - Bootstrap 4 UI Kit</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#ffffff">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Pixel CSS -->
+    <link type="text/css" href="/css/pixel.css?v=1.0.1" rel="stylesheet">
 </head>
 
-<body class="container">
+<body>
 
-<nav>
-    <div class="nav-wrapper">
-        <a href="/" class="brand-logo">Forum</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="project/add/"><i class="material-icons">add</i></a></li>
-            <li><a href="logout/"><i class="material-icons">exit_to_app</i></a></li>
-        </ul>
-    </div>
-</nav>
+    <header class="header-global">
+        <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-dark navbar-theme-secondary headroom">
+            <div class="container position-relative">
+                <a href="/" role="button" target="_blank" class="btn btn-primary ml-lg-3 animate-up-2">Home</a>
+                <div class="navbar-collapse collapse" id="navbar_global">
+                    <div class="navbar-collapse-header">
+                        <div class="row">
+                            <div class="col-6 collapse-brand">
+                                <a href="./index.html">
+                                    <img src="./img/brand/secondary.svg" alt="menuimage">
+                                </a>
+                            </div>
+                            <div class="col-6 collapse-close">
+                                <a href="#navbar_global" role="button" class="fas fa-times" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link" data-toggle="dropdown" role="button">
+                                <i class="fas fa-angle-down nav-link-arrow"></i>
+                                <span class="nav-link-inner-text">Pages</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./html/pages/about-startup.html">About Startup</a></li>
+                                <li><a class="dropdown-item" href="/login">Login</a></li>
+                                <li><a class="dropdown-item" href="./html/pages/contact.html">Contact</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link" data-toggle="dropdown" role="button">
+                                <i class="fas fa-angle-down nav-link-arrow"></i>
+                                <span class="nav-link-inner-text">Support</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-lg">
+                                <div class="col-auto px-0" data-dropdown-content>
+                                    <div class="list-group list-group-flush">
+                                        <a href="./docs/introduction.html" target="_blank" class="list-group-item list-group-item-action d-flex align-items-center p-0 py-3 px-lg-4">
+                                            <span class="icon icon-sm icon-secondary"><i class="fas fa-file-alt"></i></span>
+                                            <div class="ml-4">
+                                                <span class="text-dark d-block">Documentation<span class="badge badge-sm badge-secondary ml-2">v1.0</span></span>
+                                                <span class="small">Examples and guides</span>
+                                            </div>
+                                        </a>
+                                        <a href="https://themesberg.com/contact" target="_blank" class="list-group-item list-group-item-action d-flex align-items-center p-0 py-3 px-lg-4">
+                                            <span class="icon icon-sm icon-primary"><i class="fas fa-microphone-alt"></i></span>
+                                            <div class="ml-4">
+                                                <span class="text-dark d-block">Support</span>
+                                                <span class="small">Looking for answers? Ask us!</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
 
-<h3>Projetos</h3>
+            </div>
+        </nav>
+    </header>
 
-<table class="responsive-table">
-    <thead>
-    <tr>
-        <th>Nome</th>
-        <th>Descrição</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="project : ${projects}">
-        <td> <span th:text="${project.name}"> </span></td>
-        <td> <span th:text="${project.description}"> </span></td>
-<!--        <td> <a th:href="${(#mvc.url('QC#answer').arg(0, question.id)).build()}"><i class="material-icons">question_answer</i></a> </td>-->
-    </tr>
-    </tbody>
-</table>
+    <main>
+        <!-- Hero -->
+        <section class="section section-lg bg-secondary text-white overflow-hidden z-2">
+            <div class="container z-2">
+                <div class="row justify-content-center text-center pt-6 pt-md-5 pb-0 mb-2">
+                    <div class="col-lg-8 col-xl-8">
+                        <h1 class="display-1 font-weight-light mb-3">
+                            <span class="font-weight-bolder ml-3">
+                                Highlighter
+                            </span>
+                        </h1>
+                        <p class="lead px-xl-5">Highlighter é um software destinado a construção de bases de dados para treinamento de Inteligência Artificial.</p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="section-sm">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="mt-5 mb-5 mt-md-0">
+                        <h4>Timeline</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-md-5">
+                <div class="col-md-10 mx-auto">
+                    <!-- Timeline -->
+                    <div class="timeline timeline-one">
+                        <!-- Timeline Item 1 -->
+                        <div class="timeline-item">
+                            <span class="icon text-info icon-lg"><i class="fab fa-react"></i></span>
+                            <h5 class="my-3">React</h5>
+                            <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum.</p>
+                        </div>
+                        <!-- Timeline Item 2 -->
+                        <div class="timeline-item">
+                            <span class="icon text-secondary"><i class="fab fa-vuejs"></i></span>
+                            <h5 class="my-3">VueJs</h5>
+                            <p>Bootstrap. Build responsive, mobile-first projects on the web with the world's most popular front-end component library. Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your
+                                ideas.
+                            </p>
+                        </div>
+                        <!-- Timeline Item 3 -->
+                        <div class="timeline-item">
+                            <span class="icon text-danger"><i class="fab fa-angular"></i></span>
+                            <h5 class="my-3">Angular</h5>
+                            <p>AngularJS is a JavaScript-based open-source front-end web application framework mainly maintained by Google and by a community of individuals and corporations to address many of the challenges encountered in developing
+                                single-page applications.</p>
+                        </div>
+                    </div>
+                    <!--End of Timeline-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-secondary text-white py-6 overflow-hidden">
+        <div class="container">
 
 
-</div>
+            <hr>
+            <div class="copyright mt-4 text-center">
+                &#xA9;
+                <script>
+                        document.write(new Date().getFullYear())
+                    </script> <a href="#" target="_blank">MPRN</a>. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+    <!-- End of Footer -->
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="/js/materialize.min.js"></script>
+    <!-- Core -->
+    <script src="./vendor/jquery/jquery.min.js"></script>
+    <script src="./vendor/popper/popper.min.js"></script>
+    <script src="./vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="./vendor/headroom/headroom.min.js"></script>
+
+    <!-- Vendor JS -->
+    <script src="./vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+    <script src="./vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="./vendor/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
+    <!-- pixel JS -->
+    <script src="./js/pixel.js"></script>
+
+
 </body>
-
-
 </html>

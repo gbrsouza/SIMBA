@@ -1,91 +1,126 @@
 <p align="center">
-  <a href="http://materializecss.com/">
-    <img src="http://materializecss.com/res/materialize.svg" width="150">
+  <a href="https://themesberg.com/product/pixel-lite-free-bootstrap-4-ui-kit" alt="Themesberg Logo">
+    <img height="20" src="https://themesberg.com/img/brand/themesberg-logo-full.svg">
   </a>
 </p>
+<h1 align="center">Pixel Lite - Free Bootstrap 4 UI Kit</h1>
 
-<h3 align="center">MaterializeCSS</h3>
+<p align="center"><b>100+</b> Premium Bootstrap 4 Components, </b>3</b> Example Pages, Full Documentation, Fully Responsive, 100% Valid W3C HTML Files and made for <b>awesome developers</b> just like you. It's <strong>Free</strong>.</p>
 
 <p align="center">
-  Materialize, a CSS Framework based on material design.
-  <br>
-  <a href="http://materializecss.com/"><strong>-- Browse the docs --</strong></a>
-  <br>
-  <br>
-  <a href="https://travis-ci.org/Dogfalo/materialize">
-    <img src="https://travis-ci.org/Dogfalo/materialize.svg?branch=master" alt="Travis CI badge">
-  </a>
-  <a href="https://badge.fury.io/js/materialize-css">
-    <img src="https://badge.fury.io/js/materialize-css.svg" alt="npm version badge">
-  </a>
-  <a href="https://cdnjs.com/libraries/materialize">
-    <img src="https://img.shields.io/cdnjs/v/materialize.svg" alt="CDNJS version badge">
-  </a>
-  <a href="https://david-dm.org/Dogfalo/materialize">
-    <img src="https://david-dm.org/Dogfalo/materialize/status.svg" alt="dependencies Status badge">
+    <a href="https://themesberg.com/preview/pixel-lite/" align="center" alt="Pixel Lite Free Bootstrap 4 UI Kit">
+        <img width="500" align="center" src="https://themesberg.com/preview/images/pixel-lite/github/pixel-lite-preview.jpg">
     </a>
-  <a href="https://david-dm.org/Dogfalo/materialize#info=devDependencies">
-    <img src="https://david-dm.org/Dogfalo/materialize/dev-status.svg" alt="devDependency Status badge">
-  </a>
-  <a href="https://gitter.im/Dogfalo/materialize">
-    <img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter badge">
-  </a>
 </p>
 
-## Table of Contents
-- [Quickstart](#quickstart)
-- [Documentation](#documentation)
-- [Supported Browsers](#supported-browsers)
-- [Changelog](#changelog)
-- [Testing](#testing)
-- [Contributing](#contributing)
-- [Copyright and license](#copyright-and-license)
+<p>Pixel Lite Bootstrap 4 UI Kit is a beautifully crafted UI Kit based on Bootstrap 4 Components. This theme was built following Bootstrap's methodologies by the heart. It has 100 components, 3 plugins and 3 example pages.</p>
+<p>The Kit is Fully Responsive, has 100% valid W3C Pages and has great Google PageSpeed Insights scores.</p>
+<p>If you like the free kit, you can check out the PRO version of Pixel. It has more than 1000 components, 50+ sections and 25+ example pages to use for your awesome projects. Check it out here: <a href="https://themesberg.com/product/pixel-pro-premium-bootstrap-4-ui-kit">Pixel PRO - Premium Bootstrap 4 UI Kit.</a> </p>
 
-## Quickstart:
-Read the [getting started guide](http://materializecss.com/getting-started.html) for more information on how to use materialize.
+<h2>Check out the <a href="https://themesberg.com/preview/pixel-lite/">Online Demo</a>.</h2>
 
-- [Download the latest release](https://github.com/Dogfalo/materialize/releases/latest) of materialize directly from GitHub. ([Beta](https://github.com/Dogfalo/materialize/releases/))
-- Clone the repo: `git clone https://github.com/Dogfalo/materialize.git` (Beta: `git clone -b v1-dev https://github.com/Dogfalo/materialize.git`)
-- Include the files via [cdnjs](https://cdnjs.com/libraries/materialize). More [here](http://materializecss.com/getting-started.html). ([Beta](https://cdnjs.com/libraries/materialize/1.0.0-beta))
-- Install with [npm](https://www.npmjs.com): `npm install materialize-css` (Beta: `npm install materialize-css@next`)
-- Install with [Bower](https://bower.io): `bower install materialize` ([DEPRECATED](https://bower.io/blog/2017/how-to-migrate-away-from-bower/))
-- Install with [Atmosphere](https://atmospherejs.com): `meteor add materialize:materialize` (Beta: `meteor add materialize:materialize@=1.0.0-beta`)
+## What's included
 
-## Documentation
-The documentation can be found at <http://materializecss.com>. To run the documentation locally on your machine, you need [Node.js](https://nodejs.org/en/) installed on your computer.
+Pixel Lite has the following folder structure:
 
-### Running documentation locally
-Run these commands to set up the documentation:
-
-```bash
-git clone https://github.com/Dogfalo/materialize
-cd materialize
-npm install
 ```
 
-Then run `grunt monitor` to compile the documentation. When it finishes, open a new browser window and navigate to `localhost:8000`. We use [BrowserSync](https://www.browsersync.io/) to display the documentation.
+pixel-lite-ui-kit/
 
-### Documentation for previous releases
-Previous releases and their documentation are available for [download](https://github.com/Dogfalo/materialize/releases).
+├── css/
 
-## Supported Browsers:
-Materialize is compatible with:
+│ ├── pixel.css
 
-- Chrome 35+
-- Firefox 31+
-- Safari 9+
-- Opera
-- Edge
-- IE 11+
+├── docs/
 
-## Changelog
-For changelogs, check out [the Releases section of materialize](https://github.com/Dogfalo/materialize/releases) or the [CHANGELOG.md](CHANGELOG.md).
+├── html/
 
-## Testing
-We use Jasmine as our testing framework and we're trying to write a robust test suite for our components. If you want to help, [here's a starting guide on how to write tests in Jasmine](CONTRIBUTING.md#jasmine-testing-guide).
+│ ├── pages/
 
-## Contributing
-Check out the [CONTRIBUTING document](CONTRIBUTING.md) in the root of the repository to learn how you can contribute. You can also browse the [help-wanted](https://github.com/Dogfalo/materialize/labels/help-wanted) tag in our issue tracker to find things to do.
+│ │ ├── about-startup.html
 
-## Copyright and license
-Code Copyright 2018 Materialize. Code released under the MIT license.
+│ │ ├── contact.html
+
+│ │ ├── signin.html
+
+├── img/
+
+├── js/
+
+│ ├── pixel.js
+
+├── vendor/
+
+├── index.html
+
+```
+
+### Features
+
+- 100 Unique components
+
+- 3 Example pages
+
+- Modern Design
+
+- Fully Responsive
+
+- Bootstrap 4
+
+- jQuery
+
+- Header
+
+- Quality code
+
+- Free Logo & Images
+
+- Font Awesome Icons
+
+- and many others..
+
+### Online documentation
+
+The documentation can be found at [themesberg.com](https://themesberg.com/preview/pixel-lite/docs/introduction.html).
+
+### Built by Themesberg
+
+Our social network profiles:
+
+- [Themesberg.com](https://themesberg.com)
+
+- [Twitter](https://twitter.com/themesberg)
+
+- [Facebook](https://www.facebook.com/themesberg)
+
+## Credits & Libraries
+
+- [Unsplash](https://unsplash.com/)
+
+* [Undraw.co](https://undraw.co/)
+
+- [Bootstrap](https://getbootstrap.com/)
+
+* [jQuery](https://jquery.com/)
+
+* [Bootstrap Tags Inputs](https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/)
+
+- [Headroom.js](https://wicky.nillia.ms/headroom.js/)
+
+* [FontAwesome](https://fontawesome.com/)
+
+- [Google Fonts](https://fonts.google.com/)
+
+* [Popper.js](https://popper.js.org/)
+
+- [Prism.js](https://prismjs.com/)
+
+* [Waypoints](http://imakewebthings.com/waypoints/)
+
+- [SmoothScroll](https://github.com/cferdinandi/smooth-scroll)
+
+### Licensed under MIT
+
+Pixel Lite UI Kit is Open Source project and licensed under MIT for better Web.
+
+![MIT License](https://img.shields.io/cocoapods/l/AFNetworking.svg?style=for-the-badge)

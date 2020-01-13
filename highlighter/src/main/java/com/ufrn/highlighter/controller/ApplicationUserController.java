@@ -19,7 +19,7 @@ public class ApplicationUserController {
 
     private final ApplicationUserService applicationUserService;
 
-    @PostMapping("/register")
+    @PostMapping("/account")
     public ResponseEntity<String> registerUser (@RequestBody ApplicationUser user){
         log.info("Encrypting password...");
         user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
