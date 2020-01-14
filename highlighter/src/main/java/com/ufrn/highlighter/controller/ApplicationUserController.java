@@ -5,14 +5,11 @@ import com.ufrn.highlighter.service.ApplicationUserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 @Slf4j
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class ApplicationUserController {
@@ -20,18 +17,17 @@ public class ApplicationUserController {
     private final ApplicationUserService applicationUserService;
 
     @PostMapping("/account")
-    public ResponseEntity<String> registerUser (@RequestBody ApplicationUser user){
+    public String registerUser (ApplicationUser user){
         log.info("Encrypting password...");
         user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
 
         try{
             log.info("Resisting a new user with username '{}'", user.getUsername());
             applicationUserService.registerNewUser(user);
+            return "redirect:login";
         }catch (Exception e){
-            return new ResponseEntity<>("Error to register a new user " + e.getMessage() , HttpStatus.NOT_ACCEPTABLE);
+            return "redirect:account?error";
         }
-
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
 }

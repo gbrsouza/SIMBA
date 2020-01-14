@@ -2,7 +2,7 @@
 <html  xmlns:th="http://thymeleaf.org">
 
 <head>
-    <title>Pixel Pages - Sign in</title>
+    <title>Highlighter Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start developing with a User Interface Kit with Bootstrap 4">
@@ -29,10 +29,23 @@
                 <div class="row align-items-center">
                     <div class="col-sm-10 col-lg-6 col-xl-5 mx-auto mr-lg-0">
                         <div class="px-1 px-xl-6">
+
                             <div>
                                 <div class="text-left text-sm-center">
                                     <h1>Login</h1>
                                     <p class="text-gray mb-0">Faça login para prosseguir.</p>
+                                </div>
+
+                                <div th:if="${param.error}">
+                                    <div class="alert alert-danger" role="alert">
+                                        <span class="alert-inner--text">Username ou senha inválidos.</span>
+                                    </div>
+                                </div>
+
+                                <div th:if="${param.logout}">
+                                    <div class="alert alert-success" role="alert">
+                                        <span class="alert-inner--text">Logout com sucesso - Até logo</span>
+                                    </div>
                                 </div>
 
                                 <span class="clearfix"></span>
