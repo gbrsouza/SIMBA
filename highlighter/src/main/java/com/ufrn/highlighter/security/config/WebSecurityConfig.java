@@ -1,11 +1,17 @@
 package com.ufrn.highlighter.security.config;
 
+import com.ufrn.highlighter.security.UserDetailsServiceImpl;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private UserDetailsServiceImpl userDetailsService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -23,7 +29,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .logout()
                 .logoutSuccessUrl("/login?logout")
-                .permitAll();
+                .permitAll()
+            .and()
+            .rememberMe()
+            .userDetailsService(userDetailsService);
 
     }
 }
