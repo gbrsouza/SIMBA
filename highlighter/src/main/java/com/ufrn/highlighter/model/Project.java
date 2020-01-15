@@ -48,8 +48,8 @@ public class Project implements AbstractEntity {
     @ManyToMany
     @JoinTable(
             name = "projectUsers",
-            joinColumns = @JoinColumn(name = "idUser"),
-            inverseJoinColumns = @JoinColumn(name = "idProject")
+            joinColumns = @JoinColumn(name = "idProject"),
+            inverseJoinColumns = @JoinColumn(name = "idUser")
     )
     private Set<ApplicationUser> applicationUsers;
 

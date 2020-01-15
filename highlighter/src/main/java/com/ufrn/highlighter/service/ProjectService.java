@@ -22,9 +22,8 @@ public class ProjectService {
 
     public void insert(Project project) { projectRepository.save(project); }
 
-    public List<Project> listAllProjectsFromUser (ApplicationUser user) {
-        //@TODO
-        return null;
+    public List<Project> listAllProjectsByUserId (Long id) {
+        return projectRepository.findAllByApplicationUsers_Id(id);
     }
 
     public Project getProjectById (Long id) {return projectRepository.findById(id).get();}
