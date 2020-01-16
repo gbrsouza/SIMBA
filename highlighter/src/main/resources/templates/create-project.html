@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start developing with a User Interface Kit with Bootstrap 4">
     <meta name="author" content="Themesberg">
-    <title>Highlighter Inicial</title>
+    <title>Highlighter Criar Projeto</title>
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="120x120" href="/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
@@ -21,7 +20,6 @@
 </head>
 
 <body>
-
 <header class="header-global">
     <nav class="navbar navbar-expand-lg navbar-transparent navbar-dark navbar-theme-secondary mb-4">
         <div class="container position-relative">
@@ -65,43 +63,60 @@
     </nav>
 
 </header>
-
 <main>
-
-    <section class="section bg-soft">
+    <section class="section-sm">
         <div class="container">
-            <div class="mb-6 text-center">
-                <h1 class="font-weight-light mb-4">Mensagens</h1>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <!-- Blog Card -->
-
+            <div class="row align-items-center justify-content-around">
+                <div class="col-md-8 col-lg-8">
+                    <!-- Contact Card -->
                     <div class="blog-card">
-                        <span class="badge badge-secondary text-uppercase">Relevante</span>
-                        <span class="badge badge-danger text-uppercase">Não Relevante</span>
-                        <div class="card shadow-soft border-light">
-
-<!--                            <div class="card-header">-->
-<!--                                <div class="post-meta d-block">-->
-<!--                                    <span class="small text-gray"><i class="far fa-clock mr-2"></i>Last updated 3 mins ago</span>-->
-<!--                                </div>-->
-<!--                            </div>-->
-                            <div class="card-body pt-0">
-                                <p class="card-text my-2">According to some historical records, some people out there have boundless energy, loads of free time, and ambition...</p>
+                        <div class="card shadow-soft border-soft p-2 p-md-3 p-lg-5">
+                            <div class="text-left text-sm-center">
+                                <h1>Cadastrar novo projeto</h1>
+                                <p class="text-gray mb-0">Preencha os campos abaixo</p>
                             </div>
-<!--                            <div class="card-footer mx-4 px-0 pt-0">-->
-<!--                                <a class="btn btn-sm btn-secondary" href="#">-->
-<!--                                    Read More-->
-<!--                                </a>-->
-<!--                            </div>-->
+
+
+                            <div class="card-body pt-0">
+                                <div th:if="${param.error}">
+                                    <div class="alert alert-danger" role="alert">
+                                        <span class="alert-inner--text">Username ou Email já cadastrados.</span>
+                                    </div>
+                                </div>
+                                <form action="/project/create" method="post">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Nome do Projeto" class="form-control" name="name" />
+                                    </div>
+                                    <div class="form-group mb-0">
+                                        <textarea class="form-control" id="texareaDescription" name="description" placeholder="Descrição" rows="3"></textarea>
+                                    </div>
+                                    <div class="form-group mb-0" style="margin-top:3%">
+                                        <textarea class="form-control" id="texareaInst" name="instructions" placeholder="Instruções" rows="3"></textarea>
+                                    </div>
+
+                                    <div class="form-group mb-0" style="margin-top:3%">
+                                        <select class="form-control mdb-select colorful-select dropdown-primary" multiple searchable="Search here.." name="applicationUsers" >
+                                            <option value="" disabled selected>Escolha os Participantes</option>
+                                            <option th:each="user : ${users}" th:text="${user.username}" th:value="${user.id}"></option>
+
+                                        </select>
+                                    </div>
+
+                                    <div class="card-footer mx-4 px-0 pt-0" style="margin-top:3%">
+                                        <button type="submit" class="btn btn-block btn-secondary">Cadastrar</button>
+                                    </div>
+
+                                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                                </form>
+                            </div>
+
                         </div>
                     </div>
+                    <!-- End of Contact Card -->
                 </div>
             </div>
         </div>
     </section>
-
 </main>
 
 <!-- Footer -->

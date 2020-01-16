@@ -40,7 +40,16 @@
                 </div>
                 <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
                     <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="/project" class="nav-link">Projetos</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link" data-toggle="dropdown" role="button">
+                            <i class="fas fa-angle-down nav-link-arrow"></i>
+                            <span class="nav-link-inner-text">Projetos</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/project/create">Criar projeto</a></li>
+                            <li><a class="dropdown-item" href="/project/project">Visualizar</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a href="#" class="nav-link">Perfil</a></li>
                 </ul>
             </div>
@@ -79,7 +88,7 @@
                                 <tr th:each="project : ${projects}">
                                     <td class="option h6 font-weight-light"><span th:text="${project.name}"> </span></td>
                                     <td class="font-weight-light"><span th:text="${project.description}"> </span></td>
-                                    <td class="font-weight-light"><a  href="/project/messages" role="button" target="_blank" class="btn btn-sm btn-primary font-weight-bold animate-up-2">Acessar</a></td>
+                                    <td class="font-weight-light"><a  href="/project/messages" role="button" class="btn btn-sm btn-primary font-weight-bold animate-up-2">Acessar</a></td>
 <!--                                    <td class="py-4"><a  th:href="${(#mvc.url('PC#project').arg(0, project.id)).build()}" role="button" target="_blank" class="btn btn-sm btn-primary font-weight-bold animate-up-2">Acessar</a></td>-->
                                 </tr>
 
