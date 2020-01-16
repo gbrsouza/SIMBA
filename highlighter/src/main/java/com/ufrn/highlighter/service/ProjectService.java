@@ -1,6 +1,7 @@
 package com.ufrn.highlighter.service;
 
 import com.ufrn.highlighter.model.ApplicationUser;
+import com.ufrn.highlighter.model.Message;
 import com.ufrn.highlighter.model.Project;
 import com.ufrn.highlighter.repository.ProjectRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,10 @@ public class ProjectService {
 
     public List<Project> listAllProjectsByUserId (Long id) {
         return projectRepository.findAllByApplicationUsers_Id(id);
+    }
+
+    public List<Message> getMessageByProjectId (Long id){
+        return projectRepository.findById(id).get().getMessages();
     }
 
     public Project getProjectById (Long id) {return projectRepository.findById(id).get();}

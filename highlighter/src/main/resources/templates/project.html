@@ -88,7 +88,7 @@
                                 <tr th:each="project : ${projects}">
                                     <td class="option h6 font-weight-light"><span th:text="${project.name}"> </span></td>
                                     <td class="font-weight-light"><span th:text="${project.description}"> </span></td>
-                                    <td class="font-weight-light"><a  href="/project/messages" role="button" class="btn btn-sm btn-primary font-weight-bold animate-up-2">Acessar</a></td>
+                                    <td class="font-weight-light"><a  th:href="@{/project/messages/{id}(id=${project.id})}" role="button" class="btn btn-sm btn-primary font-weight-bold animate-up-2">Acessar</a></td>
 <!--                                    <td class="py-4"><a  th:href="${(#mvc.url('PC#project').arg(0, project.id)).build()}" role="button" target="_blank" class="btn btn-sm btn-primary font-weight-bold animate-up-2">Acessar</a></td>-->
                                 </tr>
 

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start developing with a User Interface Kit with Bootstrap 4">
     <meta name="author" content="Themesberg">
-    <title>Highlighter Inicial</title>
+    <title>Highlighter Mensagens</title>
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="120x120" href="/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
@@ -75,27 +75,28 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-12">
-                    <!-- Blog Card -->
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th class="h4 py-4 font-weight-light" style="width: 60%">Mensagem</th>
+                                <th class="h4 py-4 font-weight-light" style="width: 10%">Valor</th>
+                                <th class="h4 py-4 font-weight-light" style="width: 30%"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="message : ${messages}">
+                                <td class="option h6 font-weight-light"><span th:text="${message.body}"> </span></td>
+                                <td class="font-weight-light"><span th:text="${message.tag}"> </span></td>
+                                <td class="font-weight-light">
+                                    <a  th:href="@{/project/messages/{id}/(tag='Relevante',id=${message.project.id},messageId=${message.id})}" role="button" class="btn btn-sm btn-secondary font-weight-bold animate-up-2">Relevante</a>
+                                    <a  href="#" role="button" class="btn btn-sm btn-danger font-weight-bold animate-up-2">Não relevante</a>
+                                </td>
+                                <!--                                    <td class="py-4"><a  th:href="${(#mvc.url('PC#project').arg(0, project.id)).build()}" role="button" target="_blank" class="btn btn-sm btn-primary font-weight-bold animate-up-2">Acessar</a></td>-->
+                            </tr>
 
-                    <div class="blog-card">
-                        <span class="badge badge-secondary text-uppercase">Relevante</span>
-                        <span class="badge badge-danger text-uppercase">Não Relevante</span>
-                        <div class="card shadow-soft border-light">
-
-<!--                            <div class="card-header">-->
-<!--                                <div class="post-meta d-block">-->
-<!--                                    <span class="small text-gray"><i class="far fa-clock mr-2"></i>Last updated 3 mins ago</span>-->
-<!--                                </div>-->
-<!--                            </div>-->
-                            <div class="card-body pt-0">
-                                <p class="card-text my-2">According to some historical records, some people out there have boundless energy, loads of free time, and ambition...</p>
-                            </div>
-<!--                            <div class="card-footer mx-4 px-0 pt-0">-->
-<!--                                <a class="btn btn-sm btn-secondary" href="#">-->
-<!--                                    Read More-->
-<!--                                </a>-->
-<!--                            </div>-->
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

@@ -1,19 +1,21 @@
 package com.ufrn.highlighter.controller;
 
 import com.ufrn.highlighter.model.ApplicationUser;
+import com.ufrn.highlighter.model.Message;
 import com.ufrn.highlighter.model.Project;
 import com.ufrn.highlighter.service.ApplicationUserService;
+import com.ufrn.highlighter.service.MessageService;
 import com.ufrn.highlighter.service.ProjectService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpSession;
 
 @Controller
 @Slf4j
@@ -22,6 +24,7 @@ public class ProjectController {
 
     private final ProjectService projectService;
     private final ApplicationUserService applicationUserService;
+    private final MessageService messageService;
 
     @GetMapping("/project")
     public ModelAndView initialProject (){
@@ -49,13 +52,30 @@ public class ProjectController {
         ApplicationUser user = (ApplicationUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         project.setOwner(user);
         project.getApplicationUsers().add(user);
+
         projectService.insert(project);
         return "redirect:/project";
     }
 
-    @GetMapping("/project/messages")
-    public String messages (){
-        return "message";
+    @GetMapping("/project/messages/{id}")
+    public ModelAndView messages (@PathVariable("id") Long id){
+
+        ModelAndView mv = new ModelAndView("message");
+        Iterable<Message> messages = projectService.getMessageByProjectId(id);
+        mv.addObject("messages", messages);
+        return mv;
+    }
+
+    @PostMapping("/project/messages/{id}")
+    public String addTag (@PathVariable("id") Long projectId, Long messageId, String tag){
+
+        log.info("add tag in message id = '{}' from project id = '{}'", messageId, projectId);
+        var message = messageService.listMessageById(messageId);
+        message.setTag(tag);
+        messageService.update(message);
+
+        String url = "redirect:/project/messages/" + projectId;
+        return url;
     }
 
 
