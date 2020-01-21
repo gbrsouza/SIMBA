@@ -21,9 +21,8 @@ public class Message implements AbstractEntity {
     @EqualsAndHashCode.Include
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tagId")
-    private Tag tag;
+    @Column
+    private String tag;
 
     @Column(nullable = false)
     @NotNull(message = "The field 'body' is mandatory" )

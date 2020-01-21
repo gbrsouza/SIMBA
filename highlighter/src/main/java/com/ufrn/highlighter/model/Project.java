@@ -38,9 +38,6 @@ public class Project implements AbstractEntity {
     @OneToMany(mappedBy = "project")
     private List<Message> messages;
 
-    @OneToMany(mappedBy = "project")
-    private List<Tag> tags;
-
     @ManyToOne
     @JoinColumn(name = "idOwner")
     private ApplicationUser owner;
@@ -48,8 +45,10 @@ public class Project implements AbstractEntity {
     @ManyToMany
     @JoinTable(
             name = "projectUsers",
-            joinColumns = @JoinColumn(name = "idUser"),
-            inverseJoinColumns = @JoinColumn(name = "idProject")
+            joinColumns = @JoinColumn(name = "idProject"),
+            inverseJoinColumns = @JoinColumn(name = "idUser")
     )
     private Set<ApplicationUser> applicationUsers;
+
+    public int getNumberOfMessages () {return messages.size(); }
 }

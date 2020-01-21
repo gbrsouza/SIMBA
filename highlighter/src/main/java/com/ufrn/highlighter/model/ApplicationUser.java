@@ -23,8 +23,7 @@ public class ApplicationUser implements AbstractEntity {
     @EqualsAndHashCode.Include
     private Long id;
 
-    @NotNull(message = "The field 'email' is mandatory")
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String email;
 
     @NotNull(message = "The field 'username' is mandatory")
