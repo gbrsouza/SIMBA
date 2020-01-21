@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:v-on="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8">
@@ -73,6 +73,22 @@
             <div class="mb-6 text-center">
                 <h1 class="font-weight-light mb-4">Mensagens</h1>
             </div>
+
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <div class="progress-wrapper">
+                        <div class="progress-info">
+                            <div class="progress-label">
+                                <span class="text-secondary">Progresso</span>
+                            </div>
+                            <div class="progress-percentage">
+                                <span th:text="${percentage}"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="table-responsive">
@@ -91,14 +107,14 @@
                                     <td class="option h6 font-weight-light"><span th:text="${message.body}"> </span></td>
                                     <td class="font-weight-light"><span th:text="${message.tag}"> </span></td>
                                     <td class="font-weight-light">
-                                        <form th:action="@{/project/messages/tag/{id}(tag='Relevante',id=${message.id})}" method="post">
+                                        <form th:action="@{/project/messages/tag/{id}(tag='Relevante',id=${message.id}, size=${messagePage.size}, page=${previousPage})}" method="post">
                                             <button class="btn btn-sm btn-secondary font-weight-bold animate-up-2"  type="submit">
                                                 Relevante
                                             </button>
                                             <input type='hidden' th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                                         </form>
 
-                                        <form th:action="@{/project/messages/tag/{id}(tag='Não Relevante',id=${message.id})}" method="post">
+                                        <form th:action="@{/project/messages/tag/{id}(tag='Não Relevante',id=${message.id}, size=${messagePage.size}, page=${previousPage})}" method="post">
                                             <button class="btn btn-sm btn-danger font-weight-bold animate-up-2"  type="submit">
                                                 Não Relevante
                                             </button>
@@ -108,35 +124,20 @@
                                     </td>
                                 </tr>
                             </tbody>
-<!--                            <tfoot>-->
-<!--                                <nav aria-label="Page navigation example">-->
-<!--                                    <ul class="pagination circle-pagination"-->
-<!--                                        th:if="${messagePage.totalPages > 0}"-->
-<!--                                        th:each="pageNumber : ${pageNumbers}">-->
-<!--                                        <li class="page-item">-->
-<!--                                            <a class="page-link"-->
-<!--                                               th:href="@{/project/messages/{id}(id=${projectId}, size=${messagePage.size}, page=${pageNumber})}"-->
-<!--                                               th:text=${pageNumber}-->
-<!--                                               th:class="${pageNumber==messagePage.number + 1} ? active"></a>-->
-<!--                                        </li>-->
-<!--                                    </ul>-->
-<!--                                </nav>-->
-<!--                            </tfoot>-->
-
+                            <tfoot class="thead-inverse">
+                            <tr>
+                                <th class="py-4">
+                                    <a th:href="@{/project/messages/{id}(id=${projectId}, size=${messagePage.size}, page=${previousPage})}"
+                                       class="btn btn-sm btn-outline-dark font-weight-bold">Anterior</a></th>
+                                <th class="w-25"></th>
+                                <th class="py-4">
+                                    <a th:href="@{/project/messages/{id}(id=${projectId}, size=${messagePage.size}, page=${nextPage})}"
+                                    class="btn btn-sm btn-outline-dark font-weight-bold">Próximo</a></th>
+                            </tr>
+                            </tfoot>
                         </table>
                     </div>
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination circle-pagination"
-                            th:if="${messagePage.totalPages > 0}"
-                            th:each="pageNumber : ${pageNumbers}">
-                            <li class="page-item">
-                                <a class="page-link"
-                                   th:href="@{/project/messages/{id}(id=${projectId}, size=${messagePage.size}, page=${pageNumber-1})}"
-                                   th:text=${Anterior}
-                                   th:class="${pageNumber==messagePage.number + 1} ? active"></a>
-                            </li>
-                        </ul>
-                    </nav>
+
                 </div>
             </div>
         </div>
@@ -161,37 +162,18 @@
 <!-- End of Footer -->
 
 <!-- Core -->
-<script src="./vendor/jquery/jquery.min.js"></script>
-<script src="./vendor/popper/popper.min.js"></script>
-<script src="./vendor/bootstrap/bootstrap.min.js"></script>
-<script src="./vendor/headroom/headroom.min.js"></script>
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/popper/popper.min.js"></script>
+<script src="/vendor/bootstrap/bootstrap.min.js"></script>
+<script src="/vendor/headroom/headroom.min.js"></script>
 
 <!-- Vendor JS -->
-<script src="./vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
-<script src="./vendor/waypoints/jquery.waypoints.min.js"></script>
-<script src="./vendor/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
+<script src="/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+<script src="/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="/vendor/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
 <!-- pixel JS -->
-<script src="./js/pixel.js"></script>
+<script src="/js/pixel.js"></script>
 
-<!--<script>-->
-<!--    let rows = []-->
-<!--    $('table tbody tr').each(function(i, row) {-->
-<!--        return rows.push(row);-->
-<!--    });-->
-
-<!--    $('#messagesTable').pagination({-->
-<!--        dataSource: rows,-->
-<!--        pageSize: 1,-->
-<!--        showPageNumbers: false,-->
-<!--        showNavigator: true,-->
-<!--        callback: function(data, pagination) {-->
-<!--            // template method of yourself-->
-<!--            var html = template(data);-->
-<!--            dataContainer.html(html);-->
-<!--        }-->
-<!--    })-->
-
-<!--</script>-->
 
 </body>
 </html>

@@ -75,12 +75,25 @@ public class ProjectController {
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(1);
 
+        int tmpPrevious = currentPage - 1;
+        int tmpNext = currentPage + 1;
+
+        int previousPage = (tmpPrevious > 0) ? tmpPrevious : currentPage;
+        model.addAttribute("previousPage", previousPage);
+
         Page<Message> messagePage = projectService.findPaginatedMessagesByProjectId(
                 PageRequest.of(currentPage-1, pageSize), id);
 
         model.addAttribute("messagePage", messagePage);
-        model.addAttribute("projectId", id);
+        model.addAttribute("projectId", id);;
+
         int totalPages = messagePage.getTotalPages();
+        int nextPage = (tmpNext <= totalPages) ? tmpNext : currentPage;
+        int progress = (currentPage*100)/totalPages;
+        String percentage = currentPage + " de " + totalPages;
+        model.addAttribute("nextPage", nextPage);
+        model.addAttribute("progress", progress);
+        model.addAttribute("percentage", percentage);
         if(totalPages > 0){
             List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
                     .boxed()
@@ -89,11 +102,7 @@ public class ProjectController {
         }
 
         return "message";
-//        ModelAndView mv = new ModelAndView("message");
-//        List<Message> messages = projectService.getMessageByProjectId(id);
-//        mv.addObject("messages", messages);
-//        mv.addObject("numberMessages", messages.size());
-//        return mv;
+
     }
 
 
