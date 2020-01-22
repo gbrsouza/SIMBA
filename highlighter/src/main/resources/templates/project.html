@@ -80,26 +80,24 @@
                             <thead class="thead-inverse">
                             <tr>
                                 <th class="h4 py-4 font-weight-light" style="width: 30%">Nome</th>
-                                <th class="h4 py-4 font-weight-light" style="width: 50%">Descrição</th>
-                                <th class="h4 py-4 font-weight-light" style="width: 20%">Acesso</th>
+                                <th class="h4 py-4 font-weight-light" style="width: 60%">Descrição</th>
+                                <th class="h4 py-4 font-weight-light" style="width: 5%"></th>
+                                <th class="h4 py-4 font-weight-light" style="width: 5%"></th>
                             </tr>
                             </thead>
                             <tbody>
                                 <tr th:each="project : ${projects}">
                                     <td class="option h6 font-weight-light"><span th:text="${project.name}"> </span></td>
                                     <td class="font-weight-light"><span th:text="${project.description}"> </span></td>
-                                    <td class="font-weight-light"><a  th:href="@{/project/messages/{id}(id=${project.id})}" role="button" class="btn btn-sm btn-primary font-weight-bold animate-up-2">Acessar</a></td>
-<!--                                    <td class="py-4"><a  th:href="${(#mvc.url('PC#project').arg(0, project.id)).build()}" role="button" target="_blank" class="btn btn-sm btn-primary font-weight-bold animate-up-2">Acessar</a></td>-->
+                                    <td class="font-weight-light">
+                                        <a  th:href="@{/project/messages/{id}(id=${project.id})}" role="button" class="btn btn-sm btn-primary font-weight-bold animate-up-2">Acessar</a>
+                                    </td>
+                                    <td class="font-weight-light">
+                                        <a  th:href="@{/project/export(id=${project.id})}" role="button" class="btn btn-sm btn-danger font-weight-bold animate-up-2">Exportar</a>
+                                    </td>
                                 </tr>
 
                             </tbody>
-                            <tfoot class="thead-inverse">
-<!--                            <tr>-->
-<!--                                <th class="w-25"></th>-->
-<!--                                <th class="py-4"><a href="https://themesberg.com/product/pixel-lite-free-bootstrap-4-ui-kit" role="button" target="_blank" class="btn btn-sm btn-outline-dark font-weight-bold">Free download</a></th>-->
-<!--                                <th class="py-4"><a href="https://themesberg.com/preview/pixel-pro/html/components/all.html" role="button" target="_blank" class="btn btn-sm btn-primary font-weight-bold animate-up-2">Upgrade to PRO</a></th>-->
-<!--                            </tr>-->
-                            </tfoot>
                         </table>
                     </div>
                 </div>

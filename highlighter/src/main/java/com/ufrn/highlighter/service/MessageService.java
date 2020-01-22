@@ -27,6 +27,10 @@ public class MessageService {
 
     public Message listMessageById (Long id) {return messageRepository.findById(id).get();}
 
+    public List<Message> listMessageByProjectIdAndTagNotNull (Long id) {
+        return messageRepository.findByTagIsNotNullAndProject_Id(id);
+    }
+
     @Transactional
     @Modifying
     public void update (Message message) {messageRepository.save(message);}

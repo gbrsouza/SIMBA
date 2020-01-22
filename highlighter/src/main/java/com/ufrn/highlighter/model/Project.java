@@ -36,10 +36,12 @@ public class Project implements AbstractEntity {
     private String instructions;
 
     @OneToMany(mappedBy = "project")
+    @ToString.Exclude
     private List<Message> messages;
 
     @ManyToOne
     @JoinColumn(name = "idOwner")
+    @ToString.Exclude
     private ApplicationUser owner;
 
     @ManyToMany
@@ -48,6 +50,7 @@ public class Project implements AbstractEntity {
             joinColumns = @JoinColumn(name = "idProject"),
             inverseJoinColumns = @JoinColumn(name = "idUser")
     )
+    @ToString.Exclude
     private Set<ApplicationUser> applicationUsers;
 
     public int getNumberOfMessages () {return messages.size(); }
